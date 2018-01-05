@@ -20,6 +20,8 @@ Note:
 Bonus points if you could solve it both recursively and iteratively.
 """
 # Definition for a binary tree node.
+
+import collections
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
@@ -27,21 +29,46 @@ class TreeNode(object):
         self.right = None
 
 class Solution(object):
-    def isMirror(self, obj1, obj2):
-        if obj1 is None and obj2 is None:
-            return True
-        if obj1 is None or obj2 is None:
-            return False
 
-        return (obj1.val == obj2.val) and self.isMirror(obj1.left,obj2.right) and self.isMirror(obj1.right, obj2.left)
+    # recursive
+    # def isMirror(self, obj1, obj2):
+    #     if obj1 is None and obj2 is None:
+    #         return True
+    #     if obj1 is None or obj2 is None:
+    #         return False
+    #
+    #     return (obj1.val == obj2.val) and self.isMirror(obj1.left,obj2.right) and self.isMirror(obj1.right, obj2.left)
+    #
+    # def isSymmetric(self, root):
+    #     """
+    #     :type root: TreeNode
+    #     :rtype: bool
+    #     """
+    #
+    #     return self.isMirror(root, root)
 
+    #iterative
     def isSymmetric(self, root):
         """
         :type root: TreeNode
         :rtype: bool
         """
+        if not root:
+            return True
+        stack = []
+        stack.append((root.left, root.right))
 
-        return self.isMirror(root, root)
+        while stack:
+            left, right = stack.pop()
+            if not left and not right:
+                continue
+            elif left and right and left.val == right.val:
+                stack.append((left.left, right.right))
+                stack.append((left.right, right.left))
+            else:
+                return False
+
+        return True
 
 
 def stringToTreeNode(input):
