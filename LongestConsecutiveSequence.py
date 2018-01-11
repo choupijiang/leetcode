@@ -28,6 +28,7 @@ class Solution:
                 current_len = 1
         return max(longest_len, current_len)
 
+
 if __name__ == "__main__":
     s = Solution()
     print(s.longestConsecutive([1,2,0,1]))
