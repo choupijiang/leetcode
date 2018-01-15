@@ -16,9 +16,15 @@ Note:
 
 A, B have equal lengths in range [1, 100].
 A[i], B[i] are integers in range [0, 10^5].
+<<<<<<< HEAD
 
 """
 
+=======
+"""
+
+
+>>>>>>> 1087cef5addf927ef2490c9d8dc62bd23c170738
 class Solution:
     def anagramMappings(self, A, B):
         """
@@ -27,17 +33,34 @@ class Solution:
         :rtype: List[int]
         """
         imap = {}
+<<<<<<< HEAD
         res =[]
         for i, v in enumerate(B):
             if v not in imap:
                 imap[v] = []
             imap[v].append(i)
         # print(imap)
+=======
+        res = []
+        for i, v in enumerate(B):
+            if v not in imap:
+                imap[v] = [i]
+            else:
+                imap[v].append(i)
+        print(imap)
+
+>>>>>>> 1087cef5addf927ef2490c9d8dc62bd23c170738
         for v in A:
             res.append(imap[v].pop())
         return res
 
+<<<<<<< HEAD
 
 if __name__ == "__main__":
     s = Solution()
     print(s.anagramMappings([99,99], [99,99]))
+=======
+if __name__ == "__main__":
+    s = Solution()
+    print(s.anagramMappings([40,40] ,[40,40]))
+>>>>>>> 1087cef5addf927ef2490c9d8dc62bd23c170738
