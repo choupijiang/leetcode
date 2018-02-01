@@ -26,16 +26,27 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        numsx = [x for x in nums if x > 0]
-        numsx.insert(0, 1)
-        numsx.append(1)
+        numsx = [1] + [x for x in nums if x > 0] + [1]
         n  = len(numsx)
         memo = [[0] * n] * n
+        return (self.burst(memo, numsx, 0, n - 1))
 
     def burst(self, memo, numsx, left, right):
         if left + 1 == right:
             return 0
-        if memo[left][right]:
+        if memo[left][right] > 0:
             return memo[left][right]
+
+        for i in range(left + 1, right):
+            memo[left][right] = max(memo[left][right],
+                    self.burst(memo, numsx, left, i) +
+                    self.burst(memo, numsx, i, right) +
+                    numsx[left] * numsx[i] * numsx[right]
+                    )
+        return memo[left][right]
+
+if __name__ == "__main__":
+    s = Solution()
+    print(s.maxCoins([3, 1, 5, 8]))
         
 
