@@ -31,13 +31,6 @@ class Solution:
         :type A: List[int]
         :rtype: int
         """
-    class Solution:
-
-    def numberOfArithmeticSlices(self, A):
-        """
-        :type A: List[int]
-        :rtype: int
-        """
         # count = 0
         # for s in range(len(A) - 2):
         #     dif = A[s + 1] - A[s]
