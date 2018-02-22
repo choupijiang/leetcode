@@ -29,6 +29,7 @@ class Solution:
         numsx = [1] + [x for x in nums if x > 0] + [1]
         n  = len(numsx)
         memo = [[0] * n] * n
+
         return (self.burst(memo, numsx, 0, n - 1))
 
     def burst(self, memo, numsx, left, right):

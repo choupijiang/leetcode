@@ -37,7 +37,7 @@ class Solution:
             while len(stk) and stk[-1] < v:
                 ng[stk.pop()] = v
             stk.append(v)
-
+        print(ng)
         return [ng.get(x, -1) for x in nums1]
 
 if __name__ == "__main__":
