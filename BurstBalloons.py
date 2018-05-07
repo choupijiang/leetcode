@@ -24,7 +24,7 @@ class Solution:
     def maxCoins(self, nums):
         """
         :type nums: List[int]
-        :rtype: int
+        :rtype: int˜
         """
         numsx = [1] + [x for x in nums if x > 0] + [1]
         n  = len(numsx)
